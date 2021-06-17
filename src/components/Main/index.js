@@ -1,4 +1,4 @@
-import styles from './mainStyle.module.scss';
+import styles from './Main.module.scss';
 import logo from '../../assets/remoters.png';
 import logo2 from '../../assets/remoters@3x.png';
 import search from '../../assets/search.png';
