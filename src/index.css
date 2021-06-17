@@ -341,4 +341,29 @@ ol {
   padding-left: 0;
   list-style: none; }
 
+.wrapper {
+  background-color: rgba(98, 115, 232, 0.1); }
+  .wrapper .head {
+    max-width: 1080px;
+    height: 768px;
+    padding: 10px 0;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+
+.logo {
+  display: block;
+  margin: 102px 0; }
+
+.btn {
+  width: 241px;
+  height: 63px;
+  padding: 17px 61px 18px;
+  font-size: 19px;
+  color: #fff;
+  background-color: #4756df;
+  border-radius: 39.5px;
+  box-shadow: 10px 10px 30px 0 rgba(67, 67, 67, 0.33); }
+
 /*# sourceMappingURL=index.css.map */
