@@ -3,6 +3,10 @@ import companyLogo from '../../assets/group-4.png';
 import styles from './JobList.module.scss';
 
 function JobList({ jobs }) {
+  const applyBtn = useCallback(() => {
+    alert('지원하기 눌림');
+  }, []);
+
   const dateCheck = useCallback((value) => {
     const today = new Date();
     const timeValue = new Date(value);
@@ -38,7 +42,7 @@ function JobList({ jobs }) {
             </ul>
           </div>
           <p className={styles.date}>{dateCheck(jobs.date)}</p>
-          <button type="button" className={styles.btn}>
+          <button type="button" className={styles.btn} onClick={applyBtn}>
             지원하기
           </button>
         </div>

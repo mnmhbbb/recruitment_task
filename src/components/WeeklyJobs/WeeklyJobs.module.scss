@@ -15,32 +15,17 @@
 }
 
 .header {
-  padding-top: 176px;
+  padding-top: 10px;
   @include flexbox(space-between, center);
 
   h2 {
     font-size: 30px;
   }
 
-  label {
-    cursor: pointer;
-    user-select: none;
-    @include flexbox(center);
-
-    input {
-      width: 27px;
-      height: 27px;
-      margin-right: 24px;
-      cursor: pointer;
-    }
-
-    span {
-      font-size: 19px;
-    }
-  }
+  margin-bottom: 52px;
 }
 
 .list {
   padding-bottom: 10px;
-  margin-top: 52px;
+  margin-top: 10px;
 }
