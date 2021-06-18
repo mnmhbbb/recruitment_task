@@ -1,7 +1,28 @@
+import { useCallback } from 'react';
 import companyLogo from '../../assets/group-4.png';
 import styles from './JobList.module.scss';
 
 function JobList({ jobs }) {
+  const dateCheck = useCallback((value) => {
+    const today = new Date();
+    const timeValue = new Date(value);
+
+    const betweenTime = Math.floor((today.getTime() - timeValue) / 1000 / 60);
+    if (betweenTime < 60) {
+      return `${betweenTime}m`;
+    }
+
+    const betweenHour = Math.floor(betweenTime / 60);
+    if (betweenHour < 24) {
+      return `${betweenHour}h`;
+    }
+
+    const betweenDay = Math.floor(betweenTime / 60 / 24);
+    if (betweenDay < 365) {
+      return `${betweenDay}d`;
+    }
+  }, []);
+
   return (
     <>
       <li>
@@ -16,7 +37,7 @@ function JobList({ jobs }) {
               ))}
             </ul>
           </div>
-          <p className={styles.date}>{jobs.date}</p>
+          <p className={styles.date}>{dateCheck(jobs.date)}</p>
           <button type="button" className={styles.btn}>
             지원하기
           </button>
