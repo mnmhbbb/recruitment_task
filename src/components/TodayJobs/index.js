@@ -1,14 +1,9 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import JobList from '../JobList/JobList';
 import styles from './TodayJobs.module.scss';
-import companyLogo from '../../assets/group-4.png';
 
 function TodayJobs() {
-  const [mouseOn, setMouseOn] = useState(false);
-
-  const mouseHandler = useCallback(() => {
-    console.log('마우스!');
-    setMouseOn(!mouseOn);
-  }, [mouseOn]);
+  const [todayJobs, setTodayJobs] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -17,8 +12,8 @@ function TodayJobs() {
       .then((res) => {
         return res.json();
       })
-      .then((data) => {
-        console.log(data);
+      .then((value) => {
+        setTodayJobs(value.todayJobs);
       });
   }, []);
 
@@ -34,34 +29,9 @@ function TodayJobs() {
             </label>
           </div>
           <ul className={styles.list}>
-            <li onMouseEnter={mouseHandler} onMouseLeave={mouseHandler}>
-              <img src={companyLogo} alt="company-logo" />
-              <div className={styles.text}>
-                <span className={styles.name}>Github</span>
-                <h3 className={styles.position}>
-                  시니어 마케팅 소프트웨어 엔지니어
-                </h3>
-                <ul className={styles.tags}>
-                  <li>DevOps</li>
-                  <li>QA</li>
-                  <li>iOS</li>
-                  <li>Android</li>
-                  <li>Node</li>
-                  <li>Management</li>
-                  <li>UI/UX</li>
-                </ul>
-              </div>
-              <p className={styles.date}>18h</p>
-              {mouseOn ? (
-                <button type="button" className={styles.btn}>
-                  지원하기
-                </button>
-              ) : (
-                <button type="button" className={styles.btnBefore}>
-                  지원하기
-                </button>
-              )}
-            </li>
+            {todayJobs.map((v, i) => (
+              <JobList jobs={v} key={i} />
+            ))}
           </ul>
         </div>
       </section>
