@@ -1,8 +1,21 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import companyLogo from '../../assets/group-4.png';
 import styles from './JobList.module.scss';
 
-function JobList({ jobs }) {
+function JobList({ jobs, index }) {
+  const [isOpen, setIsOpen] = useState(null);
+
+  const toggle = useCallback(
+    (i) => () => {
+      if (isOpen === i) {
+        return setIsOpen(null);
+      }
+
+      setIsOpen(i);
+    },
+    [isOpen],
+  );
+
   const applyBtn = useCallback(() => {
     alert('지원하기 눌림');
   }, []);
@@ -29,7 +42,7 @@ function JobList({ jobs }) {
 
   return (
     <>
-      <li>
+      <li onClick={toggle(index)}>
         <div className={styles.beforeClick}>
           <img src={companyLogo} alt="company-logo" />
           <div className={styles.text}>
@@ -46,7 +59,13 @@ function JobList({ jobs }) {
             지원하기
           </button>
         </div>
-        <div className={styles.contents}>
+        <div
+          className={
+            isOpen === index
+              ? `${styles.contents} ${styles.show}`
+              : `${styles.contents}`
+          }
+        >
           <p>{jobs.contents}</p>
         </div>
       </li>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import JobList from '../JobList/JobList';
+import JobList from '../JobList';
 import styles from './TodayJobs.module.scss';
 
 function TodayJobs() {
@@ -30,7 +30,7 @@ function TodayJobs() {
           </div>
           <ul className={styles.list}>
             {todayJobs.map((v, i) => (
-              <JobList jobs={v} key={i} />
+              <JobList jobs={v} key={i} index={i} />
             ))}
           </ul>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import JobList from '../JobList/JobList';
+import JobList from '../JobList';
 import styles from './WeeklyJobs.module.scss';
 
 function WeeklyJobs() {
@@ -26,7 +26,7 @@ function WeeklyJobs() {
           </div>
           <ul className={styles.list}>
             {weeklyJobs.map((v, i) => (
-              <JobList jobs={v} key={i} />
+              <JobList jobs={v} key={i} index={i} />
             ))}
           </ul>
         </div>
