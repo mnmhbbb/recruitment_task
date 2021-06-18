@@ -25,6 +25,7 @@
 
   .btn {
     @extend %button;
+    pointer-events: none;
     opacity: 0;
   }
 
@@ -34,6 +35,7 @@
 
     .btn {
       @extend %button;
+      pointer-events: visible;
       opacity: 1;
     }
   }
