@@ -24,7 +24,9 @@ function JobList({ jobs, index }) {
     const today = new Date();
     const timeValue = new Date(value);
 
-    const betweenTime = Math.floor((today.getTime() - timeValue) / 1000 / 60);
+    const betweenTime = Math.floor(
+      (today.getTime() - timeValue.getTime()) / 1000 / 60,
+    );
     if (betweenTime < 60) {
       return `${betweenTime}m`;
     }
