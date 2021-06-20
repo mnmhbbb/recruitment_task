@@ -9,7 +9,6 @@ function Main() {
   const searchBtn = useCallback(() => {
     alert('검색 버튼 눌림');
   }, []);
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.head}>
@@ -33,7 +32,7 @@ function Main() {
             </button>
           </form>
         </div>
-        <div class={styles.right}>
+        <div className={styles.right}>
           <img src={wfh} alt="work-from-home" />
         </div>
       </div>
